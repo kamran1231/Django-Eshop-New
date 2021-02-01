@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+  body {
+    background-color:#668f94
+  }
+</style>
+
+<div class="container display2">
+  <div class="p-4 m-4 col-lg-5 mx-auto border rounded">
+    <div class="alert alert-warning" role="alert">
+      <h3>Create An Account</h3>
+    </div>
+
+    <form action="/signup" method="POST">
+      {% csrf_token %} {% if error %}
+      <div class="alert alert-danger" role="alert">
+        <strong>{{error}}</strong>
+      </div>
+      {% endif %}
+      <!--First Name-->
+      <div class="form-group mt-2">
+        <label for="">First Name</label>
+        <input
+          type="text"
+          name="firstname"
+          id=""
+          class="form-control"
+          value="{{values.first_name}}"
+          placeholder=""
+        />
+      </div>
+
+      <!--Last Name-->
+      <div class="form-group mt-2">
+        <label for="">Last Name</label>
+        <input
+          type="text"
+          name="lastname"
+          id=""
+          class="form-control"
+          value="{{values.last_name}}"
+          placeholder=""
+        />
+      </div>
+
+      <!--Phone Number-->
+      <div class="form-group mt-2">
+        <label for="">Phone Number</label>
+        <input
+          type="text"
+          name="phone"
+          id=""
+          class="form-control"
+          value="{{values.phone}}"
+          placeholder="1234567890"
+        />
+      </div>
+
+      <!--Email-->
+      <div class="form-group mt-2">
+        <label for="">Email</label>
+        <input
+          required
+          type="email"
+          name="email"
+          id=""
+          class="form-control"
+          value="{{values.email}}"
+          placeholder="example@gmail.com"
+        />
+      </div>
+
+      <!--Password-->
+      <div class="form-group mt-2">
+        <label for="">Password</label>
+        <input
+          type="password"
+          name="password"
+          id=""
+          class="form-control"
+          placeholder="************"
+        />
+      </div>
+
+      <div class="form-group mt-3 mx-auto">
+        <input
+          class="btn btn-success"
+          type="submit"
+          value="Create an Account"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
